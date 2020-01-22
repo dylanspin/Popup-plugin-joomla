@@ -19,16 +19,6 @@
 .innerPopup{
 	padding:4%;
 }
-.popUpKop{
-	position: relative;
-	top: 20px;
-	font-size: 45px;
-	font-weight: 600;
-	color:#2F9CEF;
-	text-align:center;
-	width: 100%;
-	height: auto;
-}
 .popUpText{
 	position: relative;
 	left: 12%;
@@ -36,14 +26,4 @@
 	padding: 5%;
 	width: 80%;
 	color: #494949;
-}
-.popUpClose{
-	position: absolute;
-	right: 2%;
-	top: 0;
-	font-size: 40px;
-	transition: 0.1s;
-}
-.popUpClose:hover{
-	transform: scale(1.1,1.1);
 }

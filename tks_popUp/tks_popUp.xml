@@ -10,6 +10,7 @@
 		<filename plugin="tks_popUp">tks_popUp.php</filename>
 		<folder>css</folder>
 		<folder>js</folder>
+		<folder>images</folder>
 	</files>
 	<config>
 		<fields name="params">

@@ -8,6 +8,13 @@
 		
 	*/
 
+	if(window.showAds){
+		console.log("Geen adblocker");
+	}
+	else{
+		console.log("Adblocker used");
+	}
+
 	function closePop()
 	{
 		document.getElementById('popUpId').style.display = "none";
