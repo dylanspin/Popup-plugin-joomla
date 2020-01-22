@@ -10,13 +10,11 @@
 		<filename plugin="tks_popUp">tks_popUp.php</filename>
 		<folder>css</folder>
 		<folder>js</folder>
-		<folder>images</folder>
 	</files>
 	<config>
 		<fields name="params">
 			<fieldset name="basic">
-				<field name="popuptext" type="text" label="Popup text" default="Standaard text"/>
-				<field name="tijd" type="number" label="tijd na load voor popUp" default="4"/>
+				<field name="popuptext" type="text" label="Popup text" default="Deze site hang af van reclame. Zou u kunnen overwegen om u addblocker uit te doen ?"/>
 			</fieldset>
 		</fields>
 	</config>

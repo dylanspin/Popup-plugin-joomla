@@ -21,17 +21,26 @@
             $popupkop = $pluginParams->get('popupkop');
             $popuptext = $pluginParams->get('popuptext');
 
-            $cont = "<div class='popUpOverlay' id='popUpId'>
+            $cont = "<div class='popUpOverlay' id='addblockId'>
                         <div class='popUp'>
                             <div class='innerPopup'>
+                                <div class='popUpImage'>
+                                    <i class='fa fa-exclamation-circle' aria-hidden='true'></i>
+                                </div>
+                                <div class='popUpKop'>
+                                    Addblocker is gedecteerd
+                                </div>
                                 <div class='popUpText'>
                                     $popuptext
                                 </div>
-                                <img src='images/adblock.png'>
+                                <div class='buttonPos'>
+                                    <button class='popUpbutton green' onclick='closeAdblock()'>Ik zet adblocker uit</button>
+                                    <button class='popUpbutton' onclick='closeAdblock()'>Nee danje</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    ";//body content
+                    ";
 
       	    return $cont;
 
@@ -46,12 +55,11 @@
             $doc = JFactory::getDocument();
 
             $doc->addStyleSheet($plgURL . '/css/style.css');
-            $doc->addScript($plgURL.'/js/advertisement.js');
-            $doc->addScript($plgURL.'/js/javascript.js');
+            if(!isset($_COOKIE['popUp'])){
+                $doc->addScript($plgURL.'/js/advertisement.js');//bait script voor de adblocker
+                $doc->addScript($plgURL.'/js/javascript.js');   
+            }
 
-      	    $css = "";
-
-            $doc->addStyleDeclaration($css);
             $this->params = $pluginParams;
 
         }
@@ -59,15 +67,15 @@
         public function onAfterRender(){
 
             $getapp = JFactory::getApplication();
-
             $pluginParams = $this->params;
-
             $body = $this->app->getBody();
             $content = $this->createCon($pluginParams);
             $body = str_replace('</body>', $content . '</body>', $body );
 
-            if(!isset($_COOKIE['popUp'])){
-                $this->app->setBody($body);
+            if($this->app->isSite()){
+                if(!isset($_COOKIE['popUp'])){
+                    $this->app->setBody($body); 
+                }
             }
 
         }
